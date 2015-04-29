@@ -1,0 +1,7 @@
+
+# Build and output directories.
+/build/
+/bin/
+
+# Qt Creator project settings
+CMakeLists.txt.user
