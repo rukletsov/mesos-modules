@@ -18,12 +18,8 @@
 
 #include <string>
 #include <fstream>
-#include <iostream>
 
 #include <mesos/hook.hpp>
-#include <mesos/mesos.hpp>
-#include <mesos/module.hpp>
-
 #include <mesos/module/hook.hpp>
 
 #include <stout/foreach.hpp>
@@ -32,8 +28,6 @@
 #include <stout/try.hpp>
 
 using namespace mesos;
-
-using google::protobuf::Message;
 
 
 class TestHook : public Hook
