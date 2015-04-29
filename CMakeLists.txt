@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 2.8.4)
 cmake_policy(SET CMP0042 NEW)
 
-project(mesos-task-ip)
+project(mesos-modules)
 
 # Override output folder for conveniency.
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
@@ -38,7 +38,7 @@ endif(APPLE AND ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang"))
 # Add a test hook dynamic library.
 add_library(mesos-test-hook SHARED
   ${CMAKE_CURRENT_SOURCE_DIR}/test-hook/module_main.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/test-hook/modules.json.in
+  ${CMAKE_CURRENT_SOURCE_DIR}/test-hook/test-hook.json.in
 )
 
 target_link_libraries(mesos-test-hook
@@ -50,15 +50,15 @@ target_link_libraries(mesos-test-hook
 add_custom_command(TARGET mesos-test-hook
   POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy
-    "${CMAKE_CURRENT_SOURCE_DIR}/test-hook/modules.json.in"
-    "$<TARGET_FILE_DIR:mesos-test-hook>/modules.json"
-  COMMENT "Copying modules.json data to the runtime directory"
+    "${CMAKE_CURRENT_SOURCE_DIR}/test-hook/test-hook.json.in"
+    "$<TARGET_FILE_DIR:mesos-test-hook>/test-hook.json"
+  COMMENT "Copying test-hook.json data to the runtime directory"
 )
 
 add_custom_command(TARGET mesos-test-hook
   POST_BUILD
   COMMAND sed -i ''
     's|HOOK_BINARY|'$<TARGET_FILE:mesos-test-hook>'|g'
-    "$<TARGET_FILE_DIR:mesos-test-hook>/modules.json"
+    "$<TARGET_FILE_DIR:mesos-test-hook>/test-hook.json"
   COMMENT "Replacing HOOK_MODULE with the actual hook path in module.json"
 )
