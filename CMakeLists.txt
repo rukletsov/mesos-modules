@@ -37,3 +37,6 @@ endif(APPLE AND ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang"))
 
 # Test hook.
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/test-hook)
+
+# External HierarchicalDRF allocator.
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/external-allocator)
