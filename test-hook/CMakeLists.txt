@@ -24,5 +24,5 @@ add_custom_command(TARGET mesos-test-hook
   COMMAND sed -i ''
     's|HOOK_BINARY|'$<TARGET_FILE:mesos-test-hook>'|g'
     "$<TARGET_FILE_DIR:mesos-test-hook>/test-hook.json"
-  COMMENT "Replacing HOOK_MODULE with the actual hook path in module.json"
+  COMMENT "Replacing HOOK_MODULE with the actual hook path in test-hook.json"
 )
