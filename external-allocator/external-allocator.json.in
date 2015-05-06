@@ -4,13 +4,7 @@
       "file": "HOOK_BINARY",
       "modules": [
         {
-          "name": "TestTaskHook",
-          "parameters": [
-            {
-              "key": "log",
-              "value": "/tmp/_0aTaskHook"
-            }
-          ]
+          "name": "ExternalAllocatorModule"
         }
       ]
     }
