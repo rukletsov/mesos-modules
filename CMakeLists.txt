@@ -22,11 +22,13 @@ endif(MSVC)
 
 # Locate and enable Mesos, stout, and libprocess.
 # NOTE(rukletsov): We do not regenerate protobufs, but reuse those from
-# Mesos build folder.
+# Mesos build folder. We also re-use boost bundled with Mesos to avoid
+# funky issues.
 # TODO(rukletsov): Improve FindMesos.cmake so that it supports both installed
 # Mesos and dev build.
 find_package(Mesos REQUIRED)
 include_directories(${Mesos_INCLUDE_DIR} ${Stout_INCLUDE_DIR} ${Libprocess_INCLUDE_DIR})
+include_directories(${Mesos_Boost_INCLUDE_DIR})
 include_directories(${Mesos_BUILD_DIR}/include)
 message(STATUS "Mesos library used: \"${Mesos_LIBRARIES}\"")
 
