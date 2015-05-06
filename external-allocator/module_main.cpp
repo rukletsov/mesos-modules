@@ -16,17 +16,12 @@
  * limitations under the License.
  */
 
-#include <mesos/mesos.hpp>
-#include <mesos/module.hpp>
-
 #include <mesos/master/allocator.hpp>
-
 #include <mesos/module/allocator.hpp>
 
 #include <stout/try.hpp>
 
 #include "3rdparty/constants.hpp"
-
 #include "3rdparty/mesos/hierarchical.hpp"
 
 using namespace mesos;
@@ -48,11 +43,11 @@ static Allocator* createDRFAllocator(const Parameters& parameters)
 
 // Declares a DRFAllocator module named
 // 'org_apache_mesos_TestDRFAllocator'.
-mesos::modules::Module<Allocator> org_apache_mesos_TestDRFAllocator(
+mesos::modules::Module<Allocator> ExternalAllocatorModule(
     MESOS_MODULE_API_VERSION,
     MESOS_VERSION,
-    "Apache Mesos",
-    "modules@mesos.apache.org",
-    "Test DRFAllocator module.",
+    "AlexR",
+    "alex@mesosphere.io",
+    "External DRFAllocator module.",
     NULL,
     createDRFAllocator);

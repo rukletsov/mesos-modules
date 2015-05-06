@@ -77,7 +77,7 @@ static Hook* createHook(const Parameters& parameters)
 mesos::modules::Module<Hook> TestTaskHook(
     MESOS_MODULE_API_VERSION,
     MESOS_VERSION,
-    "Apache Mesos",
+    "AlexR",
     "alex@mesosphere.io",
     "Test Hook module.",
     NULL,
