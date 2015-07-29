@@ -28,7 +28,7 @@
 #
 
 
-# Finds particular version (debug | release, .a | .so) of the Bö library.
+# Finds particular version (debug | release, .a | .so) of Mesos.
 FUNCTION (FindMesosLibrary libvar libname)
     FIND_LIBRARY (${libvar}
         NAMES ${libname}
